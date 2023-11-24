@@ -62,5 +62,5 @@ controller.delete = (req, res) =>{
         });
     })
 };
-
+console.log(controller)
 module.exports = controller;
