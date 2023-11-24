@@ -1,0 +1,59 @@
+<%- include('partials/_header'); -%>
+
+
+    <div class="container">
+        <div class="row mt-5"> <%# mt-5= margin-top 5 %>
+            <div class="col-md-7"> <%# column of 7 for table and column 5 for form%>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>Name</th>
+                            <th>Adress</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% if (data) {%>
+                            <% for (var i = 0; i< data.length; i++) {%>
+                                <tr>
+                                    <td><%= (i+1) %></td>       <%# the equal sign means is taking data value %>
+                                    <td><%= data[i].name %></td>
+                                    <td><%= data[i].adress %></td>
+                                    <td><%= data[i].phone %></td>
+                                    <td>
+                                        <a href="/delete/<%= data[i].id %>" class="btn btn-danger">Delete</a>
+                                        <a href="/update/<%= data[i].id %>" class="btn btn-info">Update</a>
+                                    </td>
+                                </tr>
+                                <%}%>
+                            <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body"> <%# Boostrap Class%>
+                        <form action="/add" method="post">
+                            <div class="form-group">
+                                <input type="text" name="name" placeholder="Name Client" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="adress" placeholder="Address Client" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="phone" placeholder="Phone Client" class="form-control">
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                              Save Customer  
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<%- include('partials/_footer'); -%>
