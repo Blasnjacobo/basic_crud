@@ -21,7 +21,7 @@ const morgan = require("morgan");
 const mysql = require("mysql");
 const myConnection = require("express-myconnection");
 //Importing routes
-const customerRoutes = require("./routes/customer");
+const customerRoutes = require("./src/routes/customer");
 
 //We will set express(port, views,etc)  //Process.env.Port checks if there a Port in the operating system isf not it is set to 3000
 
